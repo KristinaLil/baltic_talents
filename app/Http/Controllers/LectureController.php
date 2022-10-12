@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Lecture;
+use App\Models\Program;
 use Illuminate\Http\Request;
 
 class LectureController extends Controller
@@ -12,9 +14,10 @@ class LectureController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $lectures=Lecture::all();
+        return view("lectures.index",['lectures'=>$lectures]);
     }
 
     /**

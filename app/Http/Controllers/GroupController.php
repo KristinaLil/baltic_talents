@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Group;
+use App\Models\Program;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -14,7 +15,9 @@ class GroupController extends Controller
      */
     public function index()
     {
-        //
+        $groups= Group::all();
+        $programs= Program::all();
+        return view("groups.index",['groups'=>$groups,'programs'=>$programs]);
     }
 
     /**

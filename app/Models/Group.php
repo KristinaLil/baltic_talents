@@ -9,15 +9,15 @@ class Group extends Model
 {
     use HasFactory;
 
-    public function teachers () {
+    public function teacher() {
         return $this->belongsTo(Group::class,'teacher_id','id');
     }
 
-    public function users() {
-        return $this->belongsToMany(User::class);
+    public function students() {
+        return $this->belongsToMany(User::class,'group_students','group_id','student_id');
     }
 
-    public function programs() {
+    public function program() {
         return $this->belongsTo(Program::class);
     }
 

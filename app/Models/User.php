@@ -19,7 +19,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'surname',
         'email',
+        'phone',
         'password',
     ];
 
@@ -47,6 +49,6 @@ class User extends Authenticatable
     }
 
     public function groupStudents () {
-        return $this->belongsToMany(Group::class, 'group_students', 'user_id', 'group_id');
+        return $this->belongsToMany(Group::class, 'group_students', 'student_id', 'group_id');
     }
 }
